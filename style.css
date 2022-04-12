@@ -48,7 +48,7 @@ nav{
 
 }
 .header-nav{
-    padding: 0 16px;
+    padding: 10px 16px;
     text-transform: uppercase;
     font-size: 14px;
 }
@@ -78,7 +78,6 @@ nav .subnav {
     position: absolute;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
-
 }
 nav .subnav a{
     color: #000;
@@ -97,12 +96,7 @@ nav li:hover .subnav{
 }
 /* --------slide-right------------- */
 .slide{
-    min-height: 1110px;
-}
-.slide-left{
-    max-width: calc(1110px - 260px);
-    height: 2120px;
-    background-color: aquamarine;
+    height: 1110px;
 }
 .slide-right{
     max-width: 260px;
@@ -172,6 +166,13 @@ nav li:hover .subnav{
     color: #fff;
     padding: 15px 0;
 }
+/* -------------left------------- */
+.slide-left{
+    max-width: 850px;
+    min-height: 2120px;
+    background-color: #fff;
+}
+/* -------------footer------------- */
 footer{
     height: 260px;
     width: 100%;
@@ -211,6 +212,7 @@ footer .ketnoi , .info{
 .ketnoi .icon-lienket{
     font-size: 40px;
     color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
 }
 .ketnoi .icon-lienket:hover{
     color: rgba(0, 0, 0, 0.5);

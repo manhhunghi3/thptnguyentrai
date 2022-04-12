@@ -1,0 +1,95 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Họ tên Sinh viên - MãSV</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            /* background-image: url('../images/bg3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-image: radial-gradient(circle, rgb(250, 228, 194), rgb(250, 194, 148), rgb(0, 123, 194));
+            */
+            display: flex;
+        }
+        
+        .box {
+            margin-top: 10px;
+            position: relative;
+            width: 1500px;
+        }
+        
+        label {
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        /* .bg {
+            position: absolute;
+            background-color: #ffd29b;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 670px;
+            z-index: -1;
+        } */
+    </style>
+</head>
+
+<body ng-app="b3" ng-controller="ctr1">
+    <div class="box">
+        <form name="frm" class="col-5 mx-auto border border-primary">
+            <h5 class="bg-info p-2 my-0 mx-n3 text-center text-white">FORM NHẬP SẢN PHẨM</h5>
+            <div class="form-group">
+                <label>Tên SP</label>
+                <input ng-model="tensp" name="tensp" class="form-control bg-primary" required minlength="2" maxlength="30">
+                <em ng-if="frm.tensp.$invalid" class="text-danger h6">Nhập tên sản phẩm từ 2 đến 30 ký tự</em>
+            </div>
+            <div class="form-group">
+                <label>Số lượng</label>
+                <input ng-model="soluong" type="number" min="1" name="soluong" class="form-control bg-warning">
+                <em ng-if="frm.soluong.$invalid || soluong>100" class="text-danger h6">Nhập số lượng từ 1 đến 100</em>
+            </div>
+            <div class="form-group">
+                <label>Nhà sản xuất</label>
+                <select ng-model="nsx" name="nsx" class="form-control bg-secondary text-white">
+                <option value="0">Chọn NSX</option>
+                <option value="1">Samsung</option>
+                <option value="2">Toshiba</option>
+                <option value="3">HTC</option>
+            </select>
+
+                <em ng-if="!nsx || nsx==0" class="text-danger h6">Hãy chọn 1 nhà sx</em>
+            </div>
+            <div class="form-group">
+                <label>Tình trạng</label>
+                <fieldset class="border border-secondary p-3">
+                    <input ng-model="tinhtrang" name="tinhtrang" type="radio" value="1"> Hàng cũ &nbsp;
+                    <input ng-model="tinhtrang" name="tinhtrang" type="radio" value="2"> Hàng mới
+                    <em ng-if="!tinhtrang" class="text-danger h6"><br>Hàng cũ hay mới?</em>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <label>Màu sắc</label>
+                <fieldset class="border border-secondary p-3">
+                    <input ng-model="maudo" value="do" type="checkbox"> Đỏ &nbsp;
+                    <input ng-model="mauden" value="den" type="checkbox"> Đen &nbsp;
+                    <input ng-model="mautrang" value="trang" type="checkbox"> Trắng
+                    <em ng-if="!maudo && !mauden && !mautrang " class="text-danger h6"><br>Màu gì vậy?</em>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <button  class="btn btn-primary">Nhập sản phẩm</button>
+            </div>
+            <div class="bg"></div>
+        </form>
+    </div>
+</body>
+<script>
+    app = angular.module("b3", []);
+    app.controller("ctr1", xuly);
+    function xuly($scope) {
+        //code xử lý
+    }
+</script>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <center>
+        <h3 class="header-name">DANH MỤC BỘ SÁCH LỚP 12</h3>
+        <table border="1">
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span>Giải Tích 12</td>
+                <td class="hangsanpham-price">10.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span>Vật Lý 12</td>
+                <td class="hangsanpham-price">17.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span>Hóa Học 12</td>
+                <td class="hangsanpham-price">17.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span>Sinh Học 12</td>
+                <td class="hangsanpham-price">18.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span> Ngữ Văn 12</td>
+                <td class="hangsanpham-price">26.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span>Lịch Sử 12</td>
+                <td class="hangsanpham-price">16.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span>Địa Lý 12</td>
+                <td class="hangsanpham-price">17.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+            <tr class="hangsanpham">
+                <td class="hangsanpham-name"><span class="ml-20"></span>Tiếng Anh 12</td>
+                <td class="hangsanpham-price">17.000&nbsp;<span>VND</span></td>
+                <td class="btn-hangsanpham"><button class="hangsanpham-btn" onclick="them(this)">Thêm</button></td>
+            </tr>
+        </table>
+
+        <h3>GIỎ HÀNG CỦA BẠN</h3>
+        <h3 id="empty">Bạn chưa chọn mặt hàng nào</h3>
+        <div id="not-empty" style="display:none;">
+            <table border="1" id="cart"></table>
+        </div>
+        <h3 class="tongtien">TỔNG SỐ TIỀN: <span id="tong">0</span>.000&nbsp;VND</h3>
+    </center>
+    <script>
+        function them(button) {
+            var row = button.parentElement.parentElement.cloneNode(true);
+            var btnXoa = row.getElementsByTagName("button")[0];
+            btnXoa.innerText = "Xóa";
+            btnXoa.setAttribute('onclick', 'xoa(this)');
+            document.getElementById("cart").appendChild(row);
+            tinhtong();
+        }
+        function xoa(button) {
+            var row = button.parentElement.parentElement;
+            document.getElementById("cart").removeChild(row);
+            tinhtong();
+        }
+        function tinhtong() {
+            var cart = document.getElementById("cart");
+            var rows = cart.getElementsByTagName("tr");
+            var tong = 0;
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName("td");
+                var price = cells[1].innerText.substr(0,2);
+                tong += 1 * (price);
+            }
+            document.getElementById("tong").innerText = tong;
+            if (tong > 0) {
+                document.getElementById("empty").style.display = "none";//ẩn
+                document.getElementById("not-empty").style.display = "";//hiện
+            }
+            else {
+                document.getElementById("empty").style.display = "";//hiện
+                document.getElementById("not-empty").style.display = "none"; //ẩn
+            }
+            if (tong > 6000) {
+                document.getElementById("tong").style.backgroundColor = "yellow";
+            }
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: #2b2b2c;
+        }
+        .ml-20{
+            margin-left: 15px;
+        }
+        table,tr,td{
+            border-collapse: collapse;
+        }
+        table{
+            margin: 20px 0;
+        }
+        .header-name{
+            font-size: 22px;
+            margin-top: 20px;
+        }
+        .hangsanpham{
+            background-color: #f4f4fa;
+        }
+        .hangsanpham-name{
+            width: 300px;
+            height: 40px;
+            font-size: 17px;
+        }
+        .hangsanpham-price{
+            text-align: center;
+            width: 130px;
+            font-size: 17px;
+            
+        }
+        .btn-hangsanpham{
+            width: 90px;
+            text-align: center;
+        }
+        .hangsanpham-btn{
+            border: none;
+            outline: none;
+            font-size: 15px;
+            padding: 6px 12px;
+            background-color: #ddd;
+            cursor: pointer;
+            background-color: #d3d3df;
+        }
+        .tongtien{
+            font-size: 20px;
+        }
+    </style>
+</body>
+
+</html>

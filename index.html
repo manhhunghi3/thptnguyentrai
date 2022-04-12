@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <title>Trường THPT Nguyễn Trãi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trường THPT Nguyễn Trãi</title>
-    <link rel="icon" href="" type="image/x-icon"/>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
-<body>
+
+<body onload="hienthi_dongho();">
     <header class="container">
-        <a href="#"><img src="./img/banner-202011011055471604202947.jpg" alt=""></a>
+        <a href="#"><img src="./img/banner-202011011055471604202947.jpg" alt="banner"></a>
     </header>
     <nav>
         <ul class="nav df-ct">
-            <li><a href="#" class="header-nav"><ion-icon class="home" name="home"></ion-icon></a></li>
+            <li><a href="gioithieutruong.html" class="header-nav" target="page">
+                    <ion-icon class="home" name="home"></ion-icon>
+                </a></li>
             <li>
                 <a href="#" class="header-nav">
                     Giới thiệu
                     <ion-icon class="icon" name="caret-down-outline"></ion-icon>
                 </a>
                 <ul class="subnav">
-                    <li><a href="">Giới thiệu về trường</a></li>
+                    <li><a href="gioithieutruong.html" target="page">Giới thiệu về trường</a></li>
                 </ul>
             </li>
             <li>
@@ -38,8 +42,8 @@
             </li>
             <li>
                 <a href="#" class="header-nav">
-                Văn bản
-                <ion-icon class="icon" name="caret-down-outline"></ion-icon>
+                    Văn bản
+                    <ion-icon class="icon" name="caret-down-outline"></ion-icon>
                 </a>
                 <ul class="subnav">
                     <li><a href="">Văn bản chỉ đạo</a></li>
@@ -48,31 +52,36 @@
             </li>
             <li>
                 <a href="#" class="header-nav">
-                    Tài nguyên
+                    1 VÀI CHỨC NĂNG
                     <ion-icon class="icon" name="caret-down-outline"></ion-icon>
                 </a>
                 <ul class="subnav">
-                    <li><a href="">Giáo án</a></li>
-                    <li><a href="">Bài giảng điện tử</a></li>
-                    <li><a href="">Tư liệu giảng dạy</a></li>
-                    <li><a href="">Sách - Tài liệu tham khảo</a></li>
-                    <li><a href="">STEM-STEAM</a></li>
+                    <li><a href="may_tinh.html" target="page">Máy tính</a></li>
+                    <li><a href="./html/lab6_cau4_giaoHang.html" target="page">Giao hàng</a></li>
+                    <li><a href="./html/lab5_cau6_tictac_thamkhao.html" target="page">Game Tictac</a></li>
+                    <li><a href="./html/lab8_cau1.html" target="page">Tư liệu giảng dạy</a></li>
+                    <li><a href="./html/lab8_cau2_nhap_SANPHAM.html" target="page">Form nhập sản phẩm</a></li>
+                    <li><a href="./html/lab8_cau6_dt_cv.html" target="page">Tính hình chữ nhật</a></li>
+                    <li><a href="./html/ptb2.html" target="page">Giải PTB 2</a></li>
                 </ul>
             </li>
-            <li><a href="#" class="header-nav">Video</a></li>
-            <li><a href="#" class="header-nav">Thư viện ảnh</a></li>
-            <li><a href="#" class="header-nav">Kế hoạch</a></li>
-            <li><a href="#" class="header-nav">Thời khóa biểu</a></li>
-            <li><a href="#" class="header-nav">Liên hệ</a></li>
+            <li><a href="./html/gio-hang.html" target="page" class="header-nav">SGK</a></li>
+            <li><a href="./html/ThoiKhoaBieu.html" target="page" class="header-nav">Thời khóa biểu</a></li>
+            <li><a href="slide.html" target="page" class="header-nav">Hình ảnh</a></li>
+            <li><a href="./html/dangky.html" target="page" class="header-nav dang-nhap">Đăng ký</a></li>
+            <li><a href="./html/dangnhap.html" target="page" class="header-nav dang-nhap">Đăng nhập</a></li>
         </ul>
     </nav>
     <div class="map"></div>
     <div class="container slider">
         <div class="slide-right">
             <div class="thongbao mb-20">
+                <span id="dongho" class="dongho"></span>
                 <div class="content">
                     <div class="content-header">
-                        <h4>&nbsp;<i><ion-icon class="icon-notification" name="notifications"></ion-icon></i>&nbsp;THÔNG BÁO MỚI</h4>
+                        <h4>&nbsp;<i>
+                                <ion-icon class="icon-notification" name="notifications"></ion-icon>
+                            </i>&nbsp;THÔNG BÁO MỚI</h4>
                     </div>
                     <div class="content-main">
                         <div class="content-main1 bb-solid">
@@ -93,19 +102,30 @@
             <div class="kehoach mb-20">
                 <div class="content">
                     <div class="content-header">
-                        <h4>&nbsp;<i><ion-icon name="calendar-sharp"></ion-icon></i>&nbsp;KẾ HOẠCH</h4>
+                        <h4>&nbsp;<i>
+                                <ion-icon name="calendar-sharp"></ion-icon>
+                            </i>&nbsp;KẾ HOẠCH</h4>
                     </div>
                     <div class="content-main">
                         <div class="content-main1 bb-solid">
-                            <a class="td-none" href=""><ion-icon name="calendar-sharp"></ion-icon>  Các Phụ lục kèm theo Kế hoạch thi KHKT năm học 2021-2022</a>
+                            <a class="td-none" href="">
+                                <ion-icon name="calendar-sharp"></ion-icon> Các Phụ lục kèm theo Kế hoạch thi KHKT năm
+                                học 2021-2022
+                            </a>
                             <p>05/10/2021 10:20:45</p>
                         </div>
                         <div class="content-main1 bb-solid">
-                            <a class="td-none" href=""><ion-icon name="calendar-sharp"></ion-icon>  Kế hoạch tổ chức cuộc thi KHKT dành cho học sinh cấp THPT năm học 2021-2022</a>
+                            <a class="td-none" href="">
+                                <ion-icon name="calendar-sharp"></ion-icon> Kế hoạch tổ chức cuộc thi KHKT dành cho học
+                                sinh cấp THPT năm học 2021-2022
+                            </a>
                             <p>05/10/2021 10:19:20</p>
                         </div>
                         <div class="content-main1 ">
-                            <a class="td-none" href=""><ion-icon name="calendar-sharp"></ion-icon>  Kế hoạch bồi dưỡng, tập huấn chính trị hè cho đội ngũ cán bộ quản lý, giáo viên</a>
+                            <a class="td-none" href="">
+                                <ion-icon name="calendar-sharp"></ion-icon> Kế hoạch bồi dưỡng, tập huấn chính trị hè
+                                cho đội ngũ cán bộ quản lý, giáo viên
+                            </a>
                             <p>01/11/2020 15:22:04</p>
                         </div>
                     </div>
@@ -114,88 +134,144 @@
             <div class="danhmuctainguyen mb-20">
                 <div class="content">
                     <div class="content-header">
-                        <h4>&nbsp;<i><ion-icon name="reorder-three-outline"></ion-icon></i>&nbsp;DANH MỤC TÀI NGUYÊN</h4>
+                        <h4>&nbsp;<i>
+                                <ion-icon name="reorder-three-outline"></ion-icon>
+                            </i>&nbsp;DANH MỤC TÀI NGUYÊN</h4>
                     </div>
                     <div class="content-main">
                         <div class="content-main1 content-main2 bb-solid">
-                            <i><ion-icon name="folder-sharp"></ion-icon></i><a class="td-none" href="">&emsp;Giáo án</a>
+                            <i>
+                                <ion-icon name="folder-sharp"></ion-icon>
+                            </i><a class="td-none" href="">&emsp;Giáo án</a>
                         </div>
                         <div class="content-main1 content-main2 bb-solid">
-                            <i><ion-icon name="folder-sharp"></ion-icon></i><a class="td-none" href="">&emsp;Bài giảng</a>
+                            <i>
+                                <ion-icon name="folder-sharp"></ion-icon>
+                            </i><a class="td-none" href="">&emsp;Bài giảng</a>
                         </div>
                         <div class="content-main1 content-main2 bb-solid">
-                            <i><ion-icon name="folder-sharp"></ion-icon></i><a class="td-none" href="">&emsp;Tư liệu giảng dạy</a>
+                            <i>
+                                <ion-icon name="folder-sharp"></ion-icon>
+                            </i><a class="td-none" href="">&emsp;Tư liệu giảng dạy</a>
                         </div>
                         <div class="content-main1 content-main2 bb-solid">
-                            <i><ion-icon name="folder-sharp"></ion-icon></i><a class="td-none" href="">&emsp;STEM, STEAM</a>
+                            <i>
+                                <ion-icon name="folder-sharp"></ion-icon>
+                            </i><a class="td-none" href="">&emsp;STEM, STEAM</a>
                         </div>
                         <div class="content-main1 content-main2 bb-solid">
-                            <i><ion-icon name="folder-sharp"></ion-icon></i><a class="td-none" href="">&emsp;KH-KT</a>
+                            <i>
+                                <ion-icon name="folder-sharp"></ion-icon>
+                            </i><a class="td-none" href="">&emsp;KH-KT</a>
                         </div>
                         <div class="content-main1 content-main2 bb-solid">
-                            <i><ion-icon name="folder-sharp"></ion-icon></i><a class="td-none" href="">&emsp;Tài liệu học tập</a>
+                            <i>
+                                <ion-icon name="folder-sharp"></ion-icon>
+                            </i><a class="td-none" href="">&emsp;Tài liệu học tập</a>
                         </div>
                         <div class="content-main1 content-main2">
-                            <i><ion-icon name="folder-sharp"></ion-icon></i><a class="td-none" href="">&emsp;Sách - Tài liệu tham khảo</a>
+                            <i>
+                                <ion-icon name="folder-sharp"></ion-icon>
+                            </i><a class="td-none" href="">&emsp;Sách - Tài liệu tham khảo</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="tonsutrongdao mb-20">
-                <img src="./img/tuyen-truyen-202110111017141633922234.jpg" alt="">
-                <img src="./img/chao-mung-ngay-nha-giao-viet-nam-2011-202111020838281635817108.jpg" alt="">
+
+                <a href="#"><img src="./img/tuyen-truyen-202110111017141633922234.jpg"></a>
+                <a href="#"><img src="./img/chao-mung-ngay-nha-giao-viet-nam-2011-202111020838281635817108.jpg"></a>
             </div>
             <div class="lienket mb-20">
                 <div class="content">
                     <div class="content-header">
-                        <h4>&nbsp;<i><ion-icon name="link-sharp"></ion-icon></i>&nbsp;LIÊN KẾT</h4>
+                        <h4>&nbsp;<i>
+                                <ion-icon name="link-sharp"></ion-icon>
+                            </i>&nbsp;LIÊN KẾT</h4>
                     </div>
-                    <img src="./img/giao-thong-thong-minh-202011012152241604242344.png" alt="">
-                    <img src="./img/so-gd-dt-kon-tum-202110290744241635468264.png" alt="">
+                    <a href="#"><img src="./img/giao-thong-thong-minh-202011012152241604242344.png"></a>
+                    <a href="#"><img src="./img/so-gd-dt-kon-tum-202110290744241635468264.png"></a>
                 </div>
             </div>
             <div class="hoctructuyen mb-20">
                 <div class="content">
                     <div class="content-header">
-                        <h4>&nbsp;<i><ion-icon name="desktop-sharp"></ion-icon></i>&nbsp;HỌC TRỰC TUYẾN</h4>
+                        <h4>&nbsp;<i>
+                                <ion-icon name="desktop-sharp"></ion-icon>
+                            </i>&nbsp;HỌC TRỰC TUYẾN</h4>
                     </div>
-                    <img src="./img/hoc-truc-tuyen-1-202103022316271614701787.jpg" alt="">
-                    <img src="./img/hoc-truc-tuyen-2-202103022316401614701800.jpg" alt="">
+                    <a href="#"><img src="./img/hoc-truc-tuyen-1-202103022316271614701787.jpg"></a>
+                    <a href="#"><img src="./img/hoc-truc-tuyen-2-202103022316401614701800.jpg"></a>
                 </div>
             </div>
             <div class="tienich">
                 <div class="content">
                     <div class="content-header">
-                        <h4>&nbsp;<i><ion-icon name="grid-sharp"></ion-icon></i>&nbsp;TIỆN ÍCH</h4>
+                        <h4>&nbsp;<i>
+                                <ion-icon name="grid-sharp"></ion-icon>
+                            </i>&nbsp;TIỆN ÍCH</h4>
                     </div>
                     <div class="content-main">
-                        <a href="#" class="td-none"><div class="tracuu"><center>Hệ thống tra cứu điểm</center></div></a>
+                        <a href="#" class="td-none">
+                            <div class="tracuu">
+                                <center>Hệ thống tra cứu điểm</center>
+                            </div>
+                        </a>
                     </div>
                     <div class="clear"></div>
                 </div>
             </div>
         </div>
-        <div class="slide-left"></div>
+        <div class="slide-left">
+            <article>
+                <iframe name="page" src="gioithieutruong.html" scrolling="auto" height="1500px" width="100%"
+                    frameborder="0"></iframe>
+            </article>
+        </div>
     </div>
     <footer class="container">
         <div class="padding"></div>
         <div class="info">
             <h3>Trường THPT Nguyễn Trãi</h3>
-            <p><b>Địa chỉ:</b> xxxxxxxxxxxxxxxxxxxx</p>
-            <p><b>Điện thoại:</b> <a>xxxxxxxxxxxxxxx</a></p>
+            <p><b>Địa chỉ:</b></p>
+            <p><b>Điện thoại:</b></p>
             <p><b>Email:</b> mail@gmail.edu.vn</p>
         </div>
         <div class="ketnoi">
             <p>Kết nối</p>
-            <a href="" class="icon-lienket"><ion-icon name="logo-facebook"></ion-icon></a>
-            <a href="" class="icon-lienket"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="" class="icon-lienket">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="" class="icon-lienket">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
         </div>
         <div class="bottom">
             <div class="footer-solid"></div>
-            <p class="copyright">Copyright ©2022 - <a href="" class="td-none">Trường THPT Nguyễn Trãi</a>. All rights reserved <span>Thiết kế website tại hnvietnam.vn</span></p>
+            <p class="copyright">Copyright ©2022 - <a href="" class="td-none">Trường THPT Nguyễn Trãi</a>. All rights
+                reserved <span>Thiết kế website tại hnvietnam.vn</span></p>
         </div>
     </footer>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        var t = null;
+        function hienthi_dongho() {
+            //1. lay thoi gian he thong
+            var now = new Date();
+            var gio = now.getHours();
+            var phut = now.getMinutes();
+            var giay = now.getSeconds();
+            document.getElementById('dongho').innerHTML = gio + ':' + phut + ':' + giay;
+            t = setInterval('hienthi_dongho();', 1000);
+        }
+    </script>
+    <style>
+        .dongho {
+            font-size: 17px;
+            width: 260px;
+            text-align: center;
+            display: block;
+        }
+    </style>
 </body>
+
 </html>

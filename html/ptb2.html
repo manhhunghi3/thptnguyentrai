@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 550px;
+            border: darkcyan 2px solid;
+            height: 250px;
+            margin: auto;
+            margin-top: 100px;
+            position: relative;
+            font-size: 1.3em;
+            background-color: dimgrey;
+        }
+
+        .container .nut {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .container .nut button {
+            width: 120px;
+            height: 40px;
+            background-color: lightslategrey;
+            border: 2px solid lightslategrey;
+            font-weight: 700;
+            color: lightyellow;
+        }
+
+        h2 {
+            background-color: darkcyan;
+            text-align: center;
+            margin: 0;
+            font-size: 1em;
+            padding: 8px 0;
+            color: ghostwhite;
+        }
+
+        #pt {
+            padding: 20px;
+            text-align: center;
+            color: darkorange;
+            font-weight: 900;
+        }
+
+        #kq {
+            text-align: center;
+            color: greenyellow;
+            font-weight: 600;
+        }
+        #x1, #x2{
+            text-align: center;
+            color: #40E0D0;
+            font-weight: 600;
+            z-index: 1;
+        }
+    </style>
+    <script>
+        //1.khai báo đói tượng
+        var ptb2 = new Object()
+        //2.khai báo thuộc tính
+        ptb2.a = null;
+        ptb2.b = null;
+        ptb2.c = null;
+        //3. khai báo hành động
+        ptb2.nhap = function () {
+            //tí làm
+            do {
+                this.a = window.prompt("Nhập a : ");
+            } while (isNaN(this.a) == true)//nhạp sai nhập lại
+            do {
+                this.b = window.prompt("Nhập b : ");
+            } while (isNaN(this.b) == true) 
+            do {
+                this.c = window.prompt("Nhập c : ");
+            } while (isNaN(this.c) == true)
+            str = this.a + "x<sup>2</sup> + " + this.b + "x +" + this.c + " = 0";
+            document.getElementById("pt").innerHTML = str;
+        }
+        ptb2.giai = function () {
+            //tí nữa làm sau
+            var delta = this.b * this.b - 4 * this.a * this.c;
+            if (delta < 0) {
+                document.getElementById("kq").innerHTML = "Vô nghiệm";
+            }else if(delta==0){ 
+                document.getElementById("kq").innerHTML = "x1 = x2 = " + (-this.b / (2 * this.a));
+            }else{
+                var x1 = (-this.b + Math.sqrt(delta))/(2*this.a);
+                var x2 = (-this.b - Math.sqrt(delta))/(2*this.a);
+                document.getElementById('x1').innerHTML = "x1 = " +x1+ "";
+                document.getElementById('x2').innerHTML = "x2 = " +x2+ "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>GIẢI PHƯƠNG TRÌNH BẬC 2</h2>
+        <div id="pt">Phương trình</div>
+        <div id="kq">Kết quả</div>
+        <div id="x1"></div>
+        <div id="x2"></div>
+        <div class="nut">
+            <button onclick="ptb2.nhap()">Nhập A B C</button>
+            <button onclick="ptb2.giai()">Giải PT</button>
+        </div>
+</body>
+</html>

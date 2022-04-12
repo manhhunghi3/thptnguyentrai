@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form>
+        <div class="form-dangnhap">
+            <input type="text" placeholder="Email hoặc số điện thoại" id="Username" name="Username"> <br>
+            <input type="password" placeholder="Mật khẩu" id="Password" name="Password">
+        </div>
+        <div class="btn-dangnhap">
+            <div class="dangnhap" onclick="validation();">Đăng nhập</div>
+        </div>
+        <div class="quenmatkhau">
+            <a href="#">Quên mật khẩu?</a>
+        </div>
+        <div class="solid"></div>
+        <div class="btn-taotk">
+            <div class="taotk">Tạo tài khoản mới</div>
+        </div>
+    </form>
+    <script>
+        function validation(){
+            const Username = document.getElementById('Username').value;
+            const Password = document.getElementById('Password').value;
+            if(Username == "" && Password == ""){
+                alert("Bạn chưa nhập tài khoản!");
+                return;
+            }
+            if(Username == ""){
+                alert("Nhập tên tài khoản!");
+                return;
+            }
+            if(Password == ""){
+                alert("Nhập mật khẩu!");
+                return;
+            }
+            if(Username.length < 6 || Password.length < 6){
+                alert("Độ dài phải hơn 6 kí tự")
+            }else{
+                alert("Đăng nhập thành công")
+            }
+        }
+        // còn thiếu js focus
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        form{
+            width: 400px;
+            height: 365px;    
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            border: 1px solid #ccc;
+            margin-top: 20px;
+        }
+        .form-dangnhap{
+            padding: 20px 20px 10px 20px;
+        }
+        .form-dangnhap > input{
+            width: 100%;
+            margin-bottom: 12px;
+            height: 50px;
+            padding-left: 15px;
+            border-radius: 6px;
+            font-size: 17px;
+            border: 1px solid rgb(204, 208, 213);
+            color: #1d2129;
+        }
+        .form-dangnhap > input:focus{
+            outline: 1px solid #1877f2;
+        }
+        /* ------------------------------------------------------- */
+        .btn-dangnhap{
+            padding: 0px 20px;
+        }
+        .dangnhap{
+            width: 100%;
+            padding: 20px;
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+        /* ------------------------------------------------------- */
+        .quenmatkhau{
+            text-align: center;
+            margin: 16px 0;
+        }
+        .quenmatkhau > a{
+            color: #1877f2;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .quenmatkhau > a:hover{
+            text-decoration: underline;
+        }
+        .solid{
+            border-bottom: 1px solid #dadde1;
+            margin: 20px;
+        }
+        /* ------------------------------------------------------- */
+        .btn-taotk{
+            display: flex;
+            justify-content: center;
+        }
+        .taotk{
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            line-height: 48px;
+            padding: 0 16px;
+            cursor: pointer;
+            background-color: #42b72a;
+            color: #fff;
+            font-weight: 600;
+        }
+    </style>
+</body>
+</html>

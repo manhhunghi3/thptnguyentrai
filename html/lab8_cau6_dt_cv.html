@@ -1,0 +1,55 @@
+
+<!-- 1. nhúng thư viện -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- 2. ng-aap : đánh dấu angular bắt đầu  -->
+<body ng-app="b2" >
+<!-- 3. controller : "hienthi"     -->
+<div class="container"   ng-controller="hienthi">
+    <form class="col-6 mx-auto mt-3 border border-warning p-3 rounded">
+        <h4 class="text-center">TÍNH DIỆN TÍCH CHU VI HÌNH CHỮ NHẬT</h4>
+        <div class="form-group">
+            <label>Chiều dài</label>
+            <!-- 4. thuộc tính chiều dài : dai -->
+            <input name="dai" ng-model="dai" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Chiều rộng</label>
+            <!-- 5. thuộc tính chiều rộng : rong -->
+            <input name="rong" ng-model="rong" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Chu vi </label>
+            <span class="form-control">{{chuvi}}</span>
+        </div>   
+        <div class="form-group">
+            <label>Diện tích</label>
+            <!-- 11. hiện thị 2 thuoc tính ra -->
+            <span class="form-control">{{dientich}}</span>
+        </div> 
+        <div class="form-group">
+            <!-- click vào nút gọi hàm tinhtoan()  ... ng-clich.... -->
+            <button class="btn btn-warning" ng-click="tinhtoan()">Tính toán</button>
+        </div>
+    </form>
+</div>
+</body>
+
+<script>
+    app= angular.module("b2",[]);
+    app.controller("hienthi",xuly); // 7. gọi hàm xuly
+    function xuly($scope){
+        // 8. hành động / method : tinhtoan
+       $scope.tinhtoan= function(){
+           //9. lấy lại 2 thuoc tính dai, rong
+           var d = parseFloat($scope.dai);
+           var r = parseFloat($scope.rong);
+           //10. tính toán ra dt,cv ......gán vào 2 thuộc tính
+           $scope.chuvi = (d+r)*2;
+           $scope.dientich = (d*r);
+       }
+    }
+</script>
+

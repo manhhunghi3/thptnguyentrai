@@ -1,0 +1,75 @@
+<style>
+    #baihoc {
+        background-color: darkblue;
+        color: white;
+        height: 30px;
+        font-size: 1em;
+    }
+
+    #btnxem {
+        width: 120px;
+        background-color: darkorange;
+        height: 32px;
+        border: 1px solid darkorange;
+        font-size: 1em;
+    }
+
+    fieldset {
+        width: 510px;
+        margin: auto;
+        font-size: 1.1em;
+        padding: 20px;
+        border-radius: 5px;
+    }
+</style>
+<fieldset>
+    <legend>Bài học</legend>
+    <select id="baihoc">
+        <option value="">
+            Chọn bài học
+        </option>
+        <option value="https://www.youtube.com/embed/watch?v=eXYdNUEJ5r8">
+            Bài ôn tập 1
+        </option>
+        <option value="https://youtube.com/embed/watch?v=FRle0TitQbQ">
+            Bài ôn tập 2
+        </option>
+        <option value="https://youtube.com/embed/watch?v=EFTXJZ14NJ0">
+            Bài ôn tập 3
+        </option>
+        <option value="https://youtube.com/embed/watch?v=Ao7pSwXQ5mI">
+            Bài ôn tập 4
+        </option>
+        <option value="https://youtube.com/embed/watch?v=u58DC7WQL5g">
+            Bài ôn tập 5
+        </option>
+        <option value="https://youtube.com/embed/watch?v=KVcaR1ZM7eQ">
+            Bài ôn tập 6
+        </option>
+        <option value="https://youtube.com/embed/watch?v=D6nboZVIyMU">
+            Bài ôn tập 7
+        </option>
+        <option value="https://youtube.com/embed/watch?v=tXjhshClL5I">
+            Bài ôn tập 8
+        </option>
+
+    </select>
+    <button id="btnxem" onclick="xembaihoc()">Xem bài học</button>
+</fieldset>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    option{
+        width: 100%;
+        height: 600px;
+    }
+</style>
+<script>
+    function xembaihoc() {
+        var url = document.getElementById("baihoc").value;
+        if (url == "") alert("Chưa chọn bài học mà");
+        else document.location = url;
+    }
+</script>
